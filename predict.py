@@ -11,6 +11,8 @@ if __name__ == '__main__':
     from get_dataset import get_img
     X = get_img(img_dir)
     try:
+        from get_model import get_model
+        model = get_model()
         model = model.load("Data/Model/model.tflearn")
     except:
         import train
