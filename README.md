@@ -1,4 +1,4 @@
-# DogCat
+# Dog-Cat-Classifier
 
 ## Arda Mavi - [ardamavi.com](http://www.ardamavi.com/)
 
