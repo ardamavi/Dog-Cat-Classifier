@@ -4,8 +4,6 @@ import numpy as np
 from os import listdir
 from skimage import color, io
 from scipy.misc import imresize
-from tflearn.data_utils import shuffle
-from sklearn.cross_validation import train_test_split
 
 def get_img(data_path):
     # Getting image array from path:
@@ -29,7 +27,8 @@ def get_dataset(dataset_path='Data/Train_Data'):
                 count[0] += 1
                 count[1] = label
             Y.append(count[0])
-    # Shuffle datas:
-    X, Y = shuffle(X, Y)
-    X, X_test, Y, Y_test = train_test_split(X, Y, test_size=0.1, random_state=42) # Create dateset
+    # Create dateset:
+    test_size = int(len(Y)*0.9)
+    X, X_test = X[:test_size], X[test_size:]
+    Y, Y_test = Y[:test_size], Y[test_size:]
     return X, X_test, Y, Y_test

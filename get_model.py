@@ -1,68 +1,46 @@
 # Arda Mavi
 
 import os
-import tflearn
-from tflearn.metrics import Accuracy
-from tflearn.layers.estimator import regression
-from tflearn.layers.conv import conv_2d, max_pool_2d
-from tflearn.data_augmentation import ImageAugmentation
-from tflearn.data_preprocessing import ImagePreprocessing
-from tflearn.layers.core import input_data, dropout, fully_connected
+import keras
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
 
-def save_model(model, name='model'):
+def save_model(model):
     if not os.path.exists('Data/Model/'):
         os.makedirs('Data/Model/')
-    save_as = 'Data/Model/'+name+'.tflearn'
-    model.save(save_as)
-    print('Model saved as \''+save_as+'\'')
+    model_json = model.to_json()
+    with open("model.json", "w") as model_file:
+        model_file.write(model_json)
+    # serialize weights to HDF5
+    model.save_weights("weights.h5")
+    print('Model and weights saved')
     return
 
 def get_model():
-    # Normalisation:
-    img_prep = ImagePreprocessing()
-    img_prep.add_featurewise_zero_center()
-    img_prep.add_featurewise_stdnorm()
+    model = Sequential()
 
-    # For synthetic data:
-    img_aug = ImageAugmentation()
-    img_aug.add_random_flip_leftright()
-    img_aug.add_random_rotation(max_angle=25.)
+    model.add(Conv2D(32, (3, 3), padding='same', input_shape=(64, 64, 3)))
+    model.add(Activation('relu'))
+    model.add(Conv2D(32, (3, 3)))
+    model.add(Activation('relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
 
-    # Network Architecture:
-    network = input_data(shape=[None, 64, 64, 3], data_preprocessing=img_prep, data_augmentation=img_aug)
+    model.add(Conv2D(64, (3, 3), padding='same'))
+    model.add(Activation('relu'))
+    model.add(Conv2D(64, (3, 3)))
+    model.add(Activation('relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.25))
 
-    # 1: Convolution layer: 32 filters each 3x3x3:
-    conv_1 = conv_2d(network, 32, 3, activation='relu', name='conv_1')
+    model.add(Flatten())
+    model.add(Dense(512))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(2))
+    model.add(Activation('softmax'))
 
-    # 2: Max pooling:
-    network = max_pool_2d(conv_1, 2)
-
-    # 3: Convolution layer: 64 filters:
-    conv_2 = conv_2d(network, 64, 3, activation='relu', name='conv_2')
-
-    # 4: Convolution layer: 64 filters:
-    conv_3 = conv_2d(conv_2, 64, 3, activation='relu', name='conv_3')
-
-    # 5: Max pooling:
-    network = max_pool_2d(conv_3, 2)
-
-    # 6: Fully-connected: 512 node:
-    network = fully_connected(network, 512, activation='relu')
-
-    # 7: Dropout:
-    network = dropout(network, 0.5)
-
-    # 8: Fully-connected: 2 outputs:
-    network = fully_connected(network, 2, activation='softmax')
-
-    # Train configure:
-    acc = Accuracy(name="Accuracy")
-    network = regression(network, optimizer='adam', loss='categorical_crossentropy', learning_rate=0.0005, metric=acc)
-
-    # Create model:
-    if not os.path.exists('Data/Logs/'):
-        os.makedirs('Data/Logs/')
-    model = tflearn.DNN(network, checkpoint_path='checkpoint.tflearn', max_checkpoints = 3, tensorboard_verbose = 3, tensorboard_dir='Data/Logs/')
+    model.compile(loss='categorical_crossentropy', optimizer=keras.optimizers.rmsprop(lr=0.0001, decay=1e-6), metrics=['accuracy'])
 
     return model
 
