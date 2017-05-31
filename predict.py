@@ -10,12 +10,15 @@ if __name__ == '__main__':
     import sys
     img_dir = sys.argv[1]
     from get_dataset import get_img
-    X = get_img(img_dir)
+    img = get_img(img_dir)
+    import numpy as np
+    X = np.zeros((1, 64, 64, 3), dtype='float64')
+    X[0] = img
     # Getting model:
     model_file = open('Data/Model/model.json', 'r')
-    model_file = model_file.read()
+    model = model_file.read()
     model_file.close()
-    model = model_from_json(model_file)
+    model = model_from_json(model)
     # Getting weights
     model.load_weights("Data/Model/weights.h5")
     print(predict(model, X))

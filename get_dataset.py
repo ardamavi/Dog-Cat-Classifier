@@ -10,7 +10,7 @@ def get_img(data_path):
     img_size = 64
     img = io.imread(data_path)
     img = imresize(img, (img_size, img_size, 3))
-    return np.array(img)
+    return img
 
 def get_dataset(dataset_path='Data/Train_Data'):
     # Getting all data from data path:
@@ -34,6 +34,8 @@ def get_dataset(dataset_path='Data/Train_Data'):
                 print('Categori:\n', count_categori)
             Y[count_data] = count_categori[0]
     # Create dateset:
+    import keras
+    Y = keras.utils.to_categorical(Y, 2)
     test_size = int(len(Y)*0.9)
     X, X_test = X[:test_size], X[test_size:]
     Y, Y_test = Y[:test_size], Y[test_size:]
