@@ -9,6 +9,7 @@ def main():
     model = get_model()
     from get_dataset import get_dataset
     X, X_test, Y, Y_test = get_dataset()
+    import numpy
     model = train_model(model, X, X_test, Y, Y_test)
     save_model(model)
     return model
