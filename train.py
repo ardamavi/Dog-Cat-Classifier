@@ -1,15 +1,7 @@
 # Arda Mavi
 
-import numpy
-from keras.preprocessing.image import ImageDataGenerator
-
 def train_model(model, X, X_test, Y, Y_test):
-    generated_data = ImageDataGenerator(featurewise_center=False, samplewise_center=False, featurewise_std_normalization=False, samplewise_std_normalization=False, zca_whitening=False, rotation_range=0,  width_shift_range=0.1, height_shift_range=0.1, horizontal_flip = True, vertical_flip = False)
-    generated_data.fit(X)
-
-    model.fit_generator(generated_data.flow(X, Y, batch_size=32), steps_per_epoch=32, epochs=25, validation_data=(X_test, Y_test))
-    #model.fit(X, Y, batch_size=32, epochs=25, validation_data=(X_test, Y_test), shuffle=True)
-
+    model.fit(X, Y, batch_size=32, epochs=25, validation_data=(X_test, Y_test), shuffle=True)
     return model
 
 def main():

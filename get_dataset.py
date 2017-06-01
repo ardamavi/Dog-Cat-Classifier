@@ -15,6 +15,7 @@ def get_img(data_path):
 def get_dataset(dataset_path='Data/Train_Data'):
     # Getting all data from data path:
     labels = listdir(dataset_path) # Geting labels
+    print('Categories:\n', labels)
     len_datas = 0
     for label in labels:
         len_datas += len(listdir(dataset_path+'/'+label))
@@ -31,11 +32,10 @@ def get_dataset(dataset_path='Data/Train_Data'):
             if label != count_categori[1]:
                 count_categori[0] += 1
                 count_categori[1] = label
-                print('Categori:\n', count_categori)
             Y[count_data] = count_categori[0]
     # Create dateset:
     import keras
-    Y = keras.utils.to_categorical(Y, 2)
+    Y = keras.utils.to_categorical(Y, len(labels))
     test_size = int(len(Y)*0.9)
     X, X_test = X[:test_size], X[test_size:]
     Y, Y_test = Y[:test_size], Y[test_size:]
