@@ -1,6 +1,9 @@
 # Arda Mavi
 
 def train_model(model, X, X_test, Y, Y_test):
+
+    model.fit(X, Y, batch_size=10, epochs=25, validation_data=(X_test, Y_test), shuffle=True)
+
     """
     # For better yield. The duration of the training is extended.
     from keras.preprocessing.image import ImageDataGenerator
@@ -8,8 +11,7 @@ def train_model(model, X, X_test, Y, Y_test):
     generated_data.fit(X)
     model.fit_generator(generated_data.flow(X, Y, batch_size=30), steps_per_epoch=30, epochs=25, validation_data=(X_test, Y_test))
     """
-    model.fit(X, Y, batch_size=10, epochs=25, validation_data=(X_test, Y_test), shuffle=True)
-
+    
     return model
 
 def main():
