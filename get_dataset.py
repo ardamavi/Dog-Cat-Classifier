@@ -35,7 +35,7 @@ def get_dataset(dataset_path='Data/Train_Data'):
             Y[count_data] = count_categori[0]
     # Create dateset:
     import keras
-    Y = keras.utils.to_categorical(Y, len(labels))
+    Y = keras.utils.to_categorical(Y)
     test_size = int(len(Y)*0.9)
     X, X_test = X[:test_size], X[test_size:]
     Y, Y_test = Y[:test_size], Y[test_size:]
