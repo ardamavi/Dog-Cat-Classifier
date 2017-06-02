@@ -33,10 +33,10 @@ def get_dataset(dataset_path='Data/Train_Data'):
                 count_categori[0] += 1
                 count_categori[1] = label
             Y[count_data] = count_categori[0]
+            count_data += 1
     # Create dateset:
     import keras
     Y = keras.utils.to_categorical(Y)
-    test_size = int(len(Y)*0.9)
-    X, X_test = X[:test_size], X[test_size:]
-    Y, Y_test = Y[:test_size], Y[test_size:]
+    from sklearn.model_selection import train_test_split
+    X, X_test, Y, Y_test = train_test_split(X, Y, test_size=0.1, random_state=42)
     return X, X_test, Y, Y_test
