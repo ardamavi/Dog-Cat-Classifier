@@ -40,7 +40,7 @@ def get_model():
     model.add(Dense(2))
     model.add(Activation('sigmoid'))
 
-    model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+    model.compile(loss='binary_crossentropy', optimizer='adadelta', metrics=['accuracy'])
 
     return model
 
