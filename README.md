@@ -1,7 +1,7 @@
-# Dog Cat Classifier
+# Dog-Cat Classifier
+### By Arda Mavi
 
 Dog and cat image classifier with deep learning.<br/>
-By Arda Mavi
 
 #### Example:
 | <img src="test_dog.jpg?raw=true" width="200">|<img src="test_cat.jpg?raw=true" width="200">|
