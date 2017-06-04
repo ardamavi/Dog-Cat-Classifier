@@ -8,8 +8,27 @@ I use Keras for making deep learning model.<br/>
 Keras is a simple and strong deep learning library, written in Python and running with TensorFlow and Theano.<br/>
 I use TensorFlow background in Keras because Tensorflow has better multiple GPUs support than Theano.<br/>
 
-### Using Commend: <br/>
+### Predict Commend: <br/>
 `python3 predict.py <ImageFileName>`
+
+#### Test Predict:
+<div>
+<div style="float:left">
+<img src="test_dog.jpg?raw=true" width="200">
+<br/>
+Cat: 0.04618423<br/>
+Dog: 0.92035621
+</div>
+<div>
+<img src="test_cat.jpg?raw=true" width="200">
+<br/>
+Cat: 0.90135497<br/>
+Dog: 0.09642436
+</div>
+</div>
+
+### Retraining Commend: <br/>
+`python3 train.py`
 
 ### Architecture:
 - Input Data
@@ -82,3 +101,4 @@ Note: We work on 64x64 image also if you use bigger or smaller, program will aut
 
 ### Important Notes:
 - Install above modules
+- Used Python Version: 3.6.0
