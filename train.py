@@ -24,10 +24,10 @@ def train_model(model, X, X_test, Y, Y_test):
     return model
 
 def main():
-    from get_model import get_model, save_model
-    model = get_model()
     from get_dataset import get_dataset
     X, X_test, Y, Y_test = get_dataset()
+    from get_model import get_model, save_model
+    model = get_model(len(Y[0]))
     import numpy
     model = train_model(model, X, X_test, Y, Y_test)
     save_model(model)

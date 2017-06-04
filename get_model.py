@@ -15,7 +15,7 @@ def save_model(model):
     print('Model and weights saved')
     return
 
-def get_model():
+def get_model(num_classes=2):
     model = Sequential()
 
     model.add(Conv2D(32, (3, 3), input_shape=(64, 64, 3)))
@@ -37,7 +37,7 @@ def get_model():
     model.add(Dense(64))
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(2))
+    model.add(Dense(num_classes))
     model.add(Activation('sigmoid'))
 
     model.compile(loss='binary_crossentropy', optimizer='adadelta', metrics=['accuracy'])

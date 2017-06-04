@@ -71,7 +71,7 @@ Function: Sigmoid
 ### Adding new train dataset:
 If you want to add new dataset to datasets, you create a directory and rename what you want to add category (like 'cat' or 'phone').
 
-If you want to add a new training image to previously category datasets, you add a image(suggested minimum image size: 64x64) to about category directory and if you have `npy` files in `Data` folder delete `npy_train_data` folder.
+If you want to add a new training image to previously category datasets, you add a image to about category directory and if you have `npy` files in `Data` folder delete `npy_train_data` folder.
 
 Note: We work on 64x64 image also if you use bigger or smaller, program will automatically return to 64x64.
 
@@ -86,4 +86,3 @@ Note: We work on 64x64 image also if you use bigger or smaller, program will aut
 ### Important Notes:
 - Used Python Version: 3.6.0
 - Install above modules
-- If you want add new category to program, don't forget change the model output(Increase the last dense size in model).
