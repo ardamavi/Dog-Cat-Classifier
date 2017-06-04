@@ -12,20 +12,9 @@ I use TensorFlow background in Keras because Tensorflow has better multiple GPUs
 `python3 predict.py <ImageFileName>`
 
 #### Test Predict:
-<div>
-<div style="float:left">
-<img src="test_dog.jpg?raw=true" width="200">
-<br/>
-Cat: 0.04618423<br/>
-Dog: 0.92035621
-</div>
-<div>
-<img src="test_cat.jpg?raw=true" width="200">
-<br/>
-Cat: 0.90135497<br/>
-Dog: 0.09642436
-</div>
-</div>
+| <img src="test_dog.jpg?raw=true" width="200">|<img src="test_cat.jpg?raw=true" width="200">|
+|:-:|:-:|
+|Dog: 0.92035621<br/>Cat: 0.04618423|Cat: 0.90135497<br/>Dog: 0.09642436|
 
 ### Retraining Commend: <br/>
 `python3 train.py`
