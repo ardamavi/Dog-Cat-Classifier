@@ -1,25 +1,20 @@
-# Dog-Cat-Classifier
+# Dog Cat Classifier
 
-## Arda Mavi - [ardamavi.com](http://www.ardamavi.com/)
+Dog and cat image classifier with deep learning.<br/>
+By Arda Mavi
 
-Dog and cat image classifier with deep learning
-
-I use Keras for making deep learning model.<br/>
-Keras is a simple and strong deep learning library, written in Python and running with TensorFlow and Theano.<br/>
-I use TensorFlow background in Keras because Tensorflow has better multiple GPUs support than Theano.<br/>
-
-### Predict Commend: <br/>
-`python3 predict.py <ImageFileName>`
-
-#### Test Predict:
+#### Example:
 | <img src="test_dog.jpg?raw=true" width="200">|<img src="test_cat.jpg?raw=true" width="200">|
 |:-:|:-:|
 |Dog: 0.92035621<br/>Cat: 0.04618423|Cat: 0.90135497<br/>Dog: 0.09642436|
 
-### Retraining Commend: <br/>
+### Using Predict Command: <br/>
+`python3 predict.py <ImageFileName>`
+
+### Model Training: <br/>
 `python3 train.py`
 
-### Architecture:
+### Model Architecture:
 - Input Data
 Shape: 64x64x3
 
@@ -89,5 +84,6 @@ Note: We work on 64x64 image also if you use bigger or smaller, program will aut
 - h5py
 
 ### Important Notes:
-- Install above modules
 - Used Python Version: 3.6.0
+- Install above modules
+- If you want add new category to program, don't forget change the model output(Increase the last dense size in model).
