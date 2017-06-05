@@ -21,4 +21,4 @@ if __name__ == '__main__':
     model = model_from_json(model)
     # Getting weights
     model.load_weights("Data/Model/weights.h5")
-    print(predict(model, X))
+    print('Possibilities:\n[[ <Cat>  <Dog> ]]\n' + str(predict(model, X)))
