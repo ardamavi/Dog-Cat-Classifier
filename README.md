@@ -8,11 +8,14 @@ Dog and cat image classifier with deep learning.<br/>
 |:-:|:-:|
 |Dog: 0.92035621<br/>Cat: 0.04618423|Cat: 0.90135497<br/>Dog: 0.09642436|
 
-### Using Predict Command: <br/>
+### Using Predict Command:
 `python3 predict.py <ImageFileName>`
 
-### Model Training: <br/>
+### Model Training:
 `python3 train.py`
+
+### Using TensorBoard:
+`tensorboard --logdir=Data/Checkpoints/./logs`
 
 ### Model Architecture:
 - Input Data
