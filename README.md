@@ -78,14 +78,6 @@ If you want to add a new training image to previously category datasets, you add
 
 Note: We work on 64x64 image also if you use bigger or smaller, program will automatically return to 64x64.
 
-### Used Modules:
-- tensorflow
-- scikit-learn
-- scikit-image
-- numpy
-- keras
-- h5py
-
 ### Important Notes:
 - Used Python Version: 3.6.0
-- Install above modules
+- Install necessary modules with `sudo pip3 install -r requirements.txt` command.
