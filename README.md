@@ -14,7 +14,7 @@ Dog and cat image classifier with deep learning.<br/>
 |:--:|:--:|:--:|
 |Layer: 1<br/>Kernel: 4|Layer: 2<br/>Kernel: 16|Layer: 3<br/>Kernel: 10|
 
-Note: This layers made of Convolution, Activation and Max Pooling layers.
+###### Note: Layers made of Convolution, Activation and Max Pooling layers.
 
 ### Using Predict Command:
 `python3 predict.py <ImageFileName>`
