@@ -8,6 +8,14 @@ Dog and cat image classifier with deep learning.<br/>
 |:-:|:-:|
 |Dog: 0.92035621<br/>Cat: 0.04618423|Cat: 0.90135497<br/>Dog: 0.09642436|
 
+###### Layer outputs of test photographs:
+
+| <img src="Data/Layer_Outputs/Dog/Layer_1_Outputs/4.jpg?raw=true" width="32"> <img src="Data/Layer_Outputs/Cat/Layer_1_Outputs/4.jpg?raw=true" width="32">| <img src="Data/Layer_Outputs/Dog/Layer_2_Outputs/16.jpg?raw=true" width="32"> <img src="Data/Layer_Outputs/Cat/Layer_2_Outputs/16.jpg?raw=true" width="32">| <img src="Data/Layer_Outputs/Dog/Layer_3_Outputs/10.jpg?raw=true" width="32"> <img src="Data/Layer_Outputs/Cat/Layer_3_Outputs/10.jpg?raw=true" width="32">|
+|::|
+|Layer: 1<br/>Kernel: 4|Layer: 2<br/>Kernel: 16|Layer: 3<br/>Kernel: 10|
+
+Note: This layers made of Convolution, Activation and Max Pooling layers.
+
 ### Using Predict Command:
 `python3 predict.py <ImageFileName>`
 
@@ -21,6 +29,7 @@ Dog and cat image classifier with deep learning.<br/>
 - Input Data
 Shape: 64x64x3
 
+Layer 1:
 - Convolutional Layer
 32 filter
 Filter shape: 3x3
@@ -31,6 +40,7 @@ Function: ReLu
 - Max Pooling
 Pool shape: 2x2
 
+Layer 2:
 - Convolutional Layer
 32 filter
 Filter shape: 3x3
@@ -41,6 +51,7 @@ Function: ReLu
 - Max Pooling
 Pool shape: 2x2
 
+Layer 3:
 - Convolutional Layer
 64 filter
 Filter shape: 3x3
@@ -51,6 +62,7 @@ Function: ReLu
 - Max Pooling
 Pool shape: 2x2
 
+Classification:
 - Flatten
 
 - Dense
@@ -70,6 +82,8 @@ Function: Sigmoid
 
 ##### Optimizer: Adadelta
 ##### Loss: Binary Crossentropy
+
+
 
 ### Adding new train dataset:
 If you want to add new dataset to datasets, you create a directory and rename what you want to add category (like 'cat' or 'phone').
