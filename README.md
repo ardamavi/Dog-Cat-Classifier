@@ -8,13 +8,13 @@ Dog and cat image classifier with deep learning.<br/>
 |:-:|:-:|
 |Dog: 0.92035621<br/>Cat: 0.04618423|Cat: 0.90135497<br/>Dog: 0.09642436|
 
-###### Layer outputs of test photographs:
+##### Layer outputs of test photographs:
 
 | <img src="Data/Layer_Outputs/Dog/Layer_1_Outputs/4.jpg?raw=true" width="32"> <img src="Data/Layer_Outputs/Cat/Layer_1_Outputs/4.jpg?raw=true" width="32">| <img src="Data/Layer_Outputs/Dog/Layer_2_Outputs/16.jpg?raw=true" width="32"> <img src="Data/Layer_Outputs/Cat/Layer_2_Outputs/16.jpg?raw=true" width="32">| <img src="Data/Layer_Outputs/Dog/Layer_3_Outputs/10.jpg?raw=true" width="32"> <img src="Data/Layer_Outputs/Cat/Layer_3_Outputs/10.jpg?raw=true" width="32">|
 |:--:|:--:|:--:|
 |Layer: 1<br/>Kernel: 4|Layer: 2<br/>Kernel: 16|Layer: 3<br/>Kernel: 10|
 
-###### Note: Layers made of Convolution, Activation and Max Pooling layers.
+###### Look up `Data/Layer_Outputs` folder for other outputs.
 
 ### Using Predict Command:
 `python3 predict.py <ImageFileName>`
