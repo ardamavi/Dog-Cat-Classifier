@@ -4,7 +4,10 @@ from keras.models import Sequential
 from keras.models import model_from_json
 
 def predict(model, X):
-    return model.predict(X)
+    Y = model.predict(X)
+    Y = np.argmax(Y, axis=1)
+    Y = 'cat' if Y[0] == 0 else 'dog'
+    return Y
 
 if __name__ == '__main__':
     import sys
@@ -21,4 +24,5 @@ if __name__ == '__main__':
     model = model_from_json(model)
     # Getting weights
     model.load_weights("Data/Model/weights.h5")
-    print('Possibilities:\n[[ <Cat>  <Dog> ]]\n' + str(predict(model, X)))
+    Y = predict(model, X)
+    print('It is a ' + Y + ' !')

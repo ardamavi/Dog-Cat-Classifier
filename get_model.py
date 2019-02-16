@@ -38,9 +38,9 @@ def get_model(num_classes=2):
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
     model.add(Dense(num_classes))
-    model.add(Activation('sigmoid'))
+    model.add(Activation('softmax'))
 
-    model.compile(loss='binary_crossentropy', optimizer='adadelta', metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer='adadelta', metrics=['accuracy'])
 
     return model
 
