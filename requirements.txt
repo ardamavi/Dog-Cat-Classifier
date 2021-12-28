@@ -1,6 +1,8 @@
 numpy
 scikit-learn
 scikit-image
-tensorflow
+tensorflow-cpu
 keras
 h5py
+scipy==1.1.0
+pyparsing==2.4.7
