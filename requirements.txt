@@ -4,5 +4,6 @@ scikit-image
 tensorflow-cpu
 keras
 h5py
-scipy==1.1.0
-pyparsing==2.4.7
+scipy
+pyparsing
+opencv-python
