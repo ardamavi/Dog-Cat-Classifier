@@ -1,16 +1,20 @@
 # Arda Mavi
 
 import numpy as np
+import cv2
 from os import listdir
 from skimage import io
-from scipy.misc import imresize
 from keras.preprocessing.image import array_to_img, img_to_array, load_img
 
 def get_img(data_path):
     # Getting image array from path:
-    img_size = 64
     img = io.imread(data_path)
-    img = imresize(img, (img_size, img_size, 3))
+    img = img_resize(img)
+    return img
+
+def img_resize(img):
+    img_size = 64
+    img = cv2.resize(src=img, dsize=(img_size, img_size), interpolation=cv2.INTER_CUBIC)
     return img
 
 def get_dataset(dataset_path='Data/Train_Data'):

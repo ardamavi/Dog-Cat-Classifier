@@ -1,6 +1,9 @@
 numpy
 scikit-learn
 scikit-image
-tensorflow
+tensorflow-cpu
 keras
 h5py
+scipy
+pyparsing
+opencv-python
