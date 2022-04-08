@@ -6,3 +6,4 @@ keras
 h5py
 scipy==1.1.0
 pyparsing==2.4.7
+opencv-contrib-python==4.5.5.64
